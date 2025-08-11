@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon Portfolio | Christianna BLAKIME </title>
+  <title>Portfolio | Christianna BLAKIME - Développeuse Full Stack</title>
   <!-- Intégration de Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styles personnalisés */
+    .hero-bg {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+    }
+    .tech-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .project-card {
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
 </head>
-<body class="font-poppins text-gray-900 bg-gray-50">
+<body class="font-poppins text-gray-800 bg-gray-50">
   <!-- Navbar -->
   <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#" class="text-2xl font-bold text-blue-600">Portfolio</a>
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="#accueil" class="hover:text-blue-600 transition">Accueil</a></li>
-        <li><a href="#apropos" class="hover:text-blue-600 transition">À propos</a></li>
-        <li><a href="#competences" class="hover:text-blue-600 transition">Compétences</a></li>
-        <li><a href="#projets" class="hover:text-blue-600 transition">Projets</a></li>
-        <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
+      <a href="#" class="text-2xl font-bold text-blue-600">CB</a>
+      <ul class="hidden md:flex space-x-8">
+        <li><a href="#accueil" class="hover:text-blue-600 transition font-medium">Accueil</a></li>
+        <li><a href="#apropos" class="hover:text-blue-600 transition font-medium">À propos</a></li>
+        <li><a href="#competences" class="hover:text-blue-600 transition font-medium">Expertise</a></li>
+        <li><a href="#projets" class="hover:text-blue-600 transition font-medium">Réalisations</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 transition font-medium">Contact</a></li>
       </ul>
       <!-- Bouton hamburger pour mobile -->
       <div class="md:hidden">
@@ -33,222 +49,354 @@
     </div>
     <!-- Menu mobile -->
     <ul id="mobileMenu" class="md:hidden hidden flex-col space-y-4 bg-white shadow-md py-4 px-6">
-      <li><a href="#accueil" class="block hover:text-blue-600 transition">Accueil</a></li>
-      <li><a href="#apropos" class="block hover:text-blue-600 transition">À propos</a></li>
-      <li><a href="#competences" class="block hover:text-blue-600 transition">Compétences</a></li>
-      <li><a href="#projets" class="block hover:text-blue-600 transition">Projets</a></li>
-      <li><a href="#contact" class="block hover:text-blue-600 transition">Contact</a></li>
+      <li><a href="#accueil" class="block hover:text-blue-600 transition font-medium">Accueil</a></li>
+      <li><a href="#apropos" class="block hover:text-blue-600 transition font-medium">À propos</a></li>
+      <li><a href="#competences" class="block hover:text-blue-600 transition font-medium">Expertise</a></li>
+      <li><a href="#projets" class="block hover:text-blue-600 transition font-medium">Réalisations</a></li>
+      <li><a href="#contact" class="block hover:text-blue-600 transition font-medium">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Section Accueil / Héro -->
-  <section id="accueil" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 pt-20">
+  <section id="accueil" class="min-h-screen flex items-center justify-center hero-bg pt-20">
     <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
       <!-- Texte de présentation -->
       <div class="md:w-1/2 text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Bonjour, je suis <span class="text-blue-600">Christianna BLAKIME</span></h1>
-        <h2 class="text-2xl md:text-3xl font-medium mb-6">Conceptrice développeuse Web</h2>
-        <p class="text-gray-700 mb-8">Bienvenue sur mon portfolio où je partage mes projets et compétences.</p>
-        <div class="flex justify-center md:justify-start gap-4 mb-8">
-          <a href="#projets" class="btn-primary bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Voir mes projets</a>
-          <a href="mailto:blakchristianna@gmail.com" class="btn-secondary border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition">Me contacter</a>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Christianna BLAKIME</h1>
+        <h2 class="text-2xl md:text-3xl font-medium mb-6 text-blue-600">Développeuse Full Stack & Conceptrice d'Applications</h2>
+        <p class="text-gray-700 mb-8 text-lg">
+          Je conçois et développe des applications web performantes et évolutives, 
+          en mettant l'accent sur l'expérience utilisateur et la qualité du code.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
+          <a href="#projets" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-medium shadow">Voir mes réalisations</a>
+          <a href="#contact" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition font-medium">Discutons de votre projet</a>
         </div>
       </div>
-      <!-- Image de profil -->
-      <div class=" hero-image md:w-1/2 mt-10 md:mt-0 flex justify-center">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <!-- Illustration -->
+      <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+        <img src="https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg" alt="Développement web" class="rounded-lg shadow-xl max-w-md w-full">
       </div>
     </div>
   </section>
 
- <!-- Section À propos -->
-<section id="apropos" class="py-16 bg-white">
+  <!-- Section À propos -->
+  <section id="apropos" class="py-20 bg-white">
     <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-      <!-- Image d'illustration -->
-      <div class="md:w-1/3 flex justify-center">
-        <img src="assets/Profil1.jpg" alt="Christianna BLAKIME" 
-             class="w-48 h-70 md:w-56 md:h-100 object-cover shadow-lg ">
+      <!-- Image -->
+      <div class="md:w-2/5 flex justify-center mb-10 md:mb-0">
+        <div class="relative">
+          <img src="assets/Profil1.jpg" alt="Christianna BLAKIME" class="w-64 h-80 md:w-80 md:h-96 object-cover rounded-lg shadow-lg">
+          <div class="absolute -bottom-5 -right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md">
+            <span class="font-bold">5+</span> projets
+          </div>
+        </div>
       </div>
       <!-- Texte -->
-      <div class="md:w-1/2 md:pl-10 mt-8 md:mt-0">
-        <h2 class="text-3xl font-bold text-blue-600 mb-4">À propos de moi</h2>
-        <p class="text-gray-700 mb-6">
-          Je suis Christianna BLAKIME, passionnée par le développement web et spécialisé dans la création d'interfaces modernes et performantes. J'aime allier esthétique et fonctionnalité pour offrir une expérience utilisateur optimale.
+      <div class="md:w-3/5 md:pl-12">
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">À propos de moi</h2>
+        <p class="text-gray-700 mb-6 text-lg">
+          Développeuse Full Stack passionnée avec une expertise dans la conception et le développement d'applications web complexes. 
+          Je combine des compétences techniques solides avec une approche méthodique pour livrer des solutions robustes et adaptées aux besoins métiers.
         </p>
-        <p class="text-gray-700">
-          Grâce à mon expertise en HTML, CSS, JavaScript et Tailwind CSS, je conçois des sites responsives et intuitifs, adaptés à tous les supports.
+        <p class="text-gray-700 mb-6 text-lg">
+          Spécialisée dans l'analyse des besoins fonctionnels, je transforme les exigences métier en spécifications techniques claires. 
+          Mon expertise en conception et modélisation de bases de données me permet de créer des architectures data performantes et évolutives.
         </p>
+        <div class="flex flex-wrap gap-4 mt-8">
+          <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full font-medium">
+            <i class="fas fa-database mr-2"></i> Modélisation DB
+          </div>
+          <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full font-medium">
+            <i class="fas fa-project-diagram mr-2"></i> Analyse fonctionnelle
+          </div>
+          <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full font-medium">
+            <i class="fas fa-code mr-2"></i> Développement Full Stack
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
   <!-- Section Compétences -->
-    <section id="competences" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-blue-600 mb-12">Mes compétences techniques</h2>
+  <section id="competences" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-blue-600 mb-4">Mon Expertise Technique</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Une maîtrise approfondie des technologies modernes pour des solutions performantes et maintenables
+        </p>
+      </div>
       
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-        <!-- Langages -->
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-java text-5xl text-red-500 mb-3"></i>
-          <p class="font-medium">Java</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Backend -->
+        <div class="bg-white p-8 rounded-xl shadow-md tech-card transition">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-server text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Développement Backend</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>Spring Boot</strong> - Applications Java robustes avec Spring Security, JPA, Hibernate</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>Symfony</strong> - Développement PHP avec architecture MVC et Doctrine</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>Microservices</strong> - Architecture découpée avec Spring Cloud</span>
+            </li>
+          </ul>
         </div>
         
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-js text-5xl text-yellow-500 mb-3"></i>
-          <p class="font-medium">TypeScript</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
+        <!-- Frontend -->
+        <div class="bg-white p-8 rounded-xl shadow-md tech-card transition">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-laptop-code text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Développement Frontend</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>Angular</strong> - Applications SPA avec RxJS, NgRx, Material UI</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>React</strong> - Interfaces dynamiques, Context API</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>TypeScript</strong> - Développement typé pour une meilleure maintenance</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>Responsive Design</strong> - Applications adaptées à tous devices</span>
+            </li>
+          </ul>
         </div>
         
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-php text-5xl text-purple-500 mb-3"></i>
-          <p class="font-medium">PHP</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-python text-5xl text-blue-500 mb-3"></i>
-          <p class="font-medium">Python</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-html5 text-5xl text-orange-500 mb-3"></i>
-          <p class="font-medium">HTML5</p><p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-css3-alt text-5xl text-blue-400 mb-3"></i>
-          <p class="font-medium">CSS3</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <!-- Frameworks -->
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fas fa-leaf text-5xl text-green-500 mb-3"></i>
-          <p class="font-medium">Spring Boot</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-angular text-5xl text-red-500 mb-3"></i>
-          <p class="font-medium">Angular</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-python text-5xl text-green-600 mb-3"></i>
-          <p class="font-medium">Django REST</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <!-- Bases de données -->
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fas fa-database text-5xl text-blue-600 mb-3"></i>
-          <p class="font-medium">MySQL</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fas fa-database text-5xl text-blue-400 mb-3"></i>
-          <p class="font-medium">PostgreSQL</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <!-- Outils -->
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-git-alt text-5xl text-orange-600 mb-3"></i>
-          <p class="font-medium">Git</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-github text-5xl text-gray-800 mb-3"></i>
-          <p class="font-medium">GitHub</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fab fa-docker text-5xl text-blue-500 mb-3"></i>
-          <p class="font-medium">Docker</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
-
-        </div>
-        
-        <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <i class="fas fa-server text-5xl text-gray-600 mb-3"></i>
-          <p class="font-medium">Postman</p>
-          <p class="font-small text-gray-500">Intermédiaire</p>
+        <!-- Base de données -->
+        <div class="bg-white p-8 rounded-xl shadow-md tech-card transition">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-database text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Bases de Données & DevOps</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>MySQL/PostgreSQL</strong> - Conception et optimisation de schémas relationnels</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>Docker</strong> - Containerisation et déploiement d'applications</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span><strong>CI/CD</strong> - Intégration et déploiement continus avec GitHub Actions</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
   
   <!-- Section Projets -->
-  <section id="projets" class="py-16 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-blue-600 mb-8">Mes projets</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <!-- Carte Projet 1 -->
-        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-          <img src="assets/AdopteUnDev.png" alt="Projet 2" class="w-full h-60 rounded-md mb-4">
-          <h3 class="text-xl font-semibold mb-2">AdopteUnDev</h3>
-          <p class="text-gray-600 mb-4">Plateforme de Recrutement de développeurs</p>
-          <a href="https://drive.google.com/file/d/1qOI0qs2jl4Rnq7wRqOlS0Gd2w7X6tLKd/view?usp=drive_link" class="text-blue-600 hover:underline transition">Voir plus</a>
+  <section id="projets" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-blue-600 mb-4">Mes Réalisations</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Des projets concrets mettant en œuvre mon expertise technique et ma compréhension des besoins métiers
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Projet 1 -->
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md project-card">
+          <img src="assets/AdopteUnDev.png" alt="AdopteUnDev" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">AdopteUnDev</h3>
+            <p class="text-gray-600 mb-4">
+              Plateforme de recrutement spécialisée pour développeurs avec matching algorithmique, 
+                réalisée avec Symfony. Conception de la base de données relationnelle 
+              et intégraton des vues dans les interfaces Twig.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Symfony</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1qOI0qs2jl4Rnq7wRqOlS0Gd2w7X6tLKd/view?usp=drive_link" 
+               class="text-blue-600 hover:underline font-medium inline-flex items-center">
+              Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
-        <!-- Carte Projet 2 -->
-        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-          <img src="assets/passe_capture.png" alt="Projet 2" class="w-full h-60 rounded-md mb-4">
-          <h3 class="text-xl font-semibold mb-2">PASSE</h3>
-          <p class="text-gray-600 mb-4">Digitalisation du processus de délivrance des attestations de redevance pour les marchés publics</p>
-          <a href="https://passe.arcop.tg/publics/lite-egp" class="text-blue-600 hover:underline transition">Voir plus</a>
+        
+        <!-- Projet 2 -->
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md project-card">
+          <img src="assets/passe_capture.png" alt="PASSE" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">PASSE</h3>
+            <p class="text-gray-600 mb-4">
+              Digitalisation du processus de délivrance des attestations pour marchés publics. 
+              Solution complète avec workflow métier complexe, développée avec Spring Boot et Angular 
+              Analyse détaillée des besoins fonctionnels avant conception.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Spring Boot</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Angular</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+            </div>
+            <a href="https://passe.arcop.tg/publics/lite-egp" 
+               class="text-blue-600 hover:underline font-medium inline-flex items-center">
+              Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
-        <!-- Carte Projet 3 -->
-        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-          <img src="assets/NetAtlas.png" alt="Projet 3" class="w-full h-60 rounded-md mb-4">
-          <h3 class="text-xl font-semibold mb-2">NETATLAS</h3>
-          <p class="text-gray-600 mb-4">Plateforme de messagerie sociale</p>
-          <a href="https://github.com/Adocal5353/NetAtlas" class="text-blue-600 hover:underline transition">Voir plus</a>
+        
+        <!-- Projet 3 -->
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md project-card">
+          <img src="assets/NetAtlas.png" alt="NETATLAS" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">NETATLAS</h3>
+            <p class="text-gray-600 mb-4">
+              Plateforme de messagerie sociale avec fonctionnalités avancées de chat en temps réel. 
+              Architecture MVC avec C# et ASP.NET Core. Modélisation de la 
+              base de données pour optimiser les performances des requêtes.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">C#</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">ASP.NET Core</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+            </div>
+            <a href="https://github.com/Adocal5353/NetAtlas" 
+               class="text-blue-600 hover:underline font-medium inline-flex items-center">
+              Voir le code <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
-        <!-- Ajoutez d'autres cartes projets si nécessaire -->
       </div>
     </div>
   </section>
   
   <!-- Section Contact -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-blue-600 mb-8">Contactez-moi</h2>
-      <form class="max-w-lg mx-auto space-y-6">
-        <div>
-          <input type="text" placeholder="Votre nom" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+  <section id="contact" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-blue-600 mb-4">Contactez-moi</h2>
+          <p class="text-gray-600">
+            Vous avez un projet ou une question ? Envoyez-moi un message et je vous répondrai dans les plus brefs délais.
+          </p>
         </div>
-        <div>
-          <input type="email" placeholder="Votre email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
-        </div>
-        <div>
-          <textarea placeholder="Votre message" rows="5" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">Envoyer</button>
-      </form>
+        
+        <form id="contactForm" class="bg-white rounded-xl shadow-md p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="name" class="block text-gray-700 font-medium mb-2">Votre nom</label>
+              <input type="text" id="name" name="name" required 
+                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-2">Votre email</label>
+              <input type="email" id="email" name="email" required 
+                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+          </div>
+          <div class="mb-6">
+            <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+            <input type="text" id="subject" name="subject" required 
+                   class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
+            <textarea id="message" name="message" rows="5" required 
+                      class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+          </div>
+          <button type="submit" 
+                  class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium shadow-md">
+            Envoyer le message
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-4">
-    <p>&copy; 2025 Christianna - Tous droits réservés</p>
-    <div class="flex justify-center space-x-4 mt-2">
-        <a href="https://github.com/ChristiannaBlakime" class="text-white text-2xl"><i class="fab fa-github"></i></a>
-        <a href="https://github.com/BlakimeChristianna" class="text-white text-2xl"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/christianna-blakime/" class="text-white text-2xl"><i class="fab fa-linkedin"></i></a>
-        <a href=https://x.com/blakime_c?t=p9HVMS9GSLIpmixoobftDQ&s=08" class="text-white text-2xl"><i class="fab fa-twitter"></i></a>
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-bold text-white mb-2">Christianna BLAKIME</h3>
+          <p class="text-gray-400">Développeuse Full Stack & Conceptrice d'Applications</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="https://github.com/ChristiannaBlakime" 
+             class="text-gray-400 hover:text-white transition text-2xl"
+             aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/christianna-blakime/" 
+             class="text-gray-400 hover:text-white transition text-2xl"
+             aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://x.com/blakime_c" 
+             class="text-gray-400 hover:text-white transition text-2xl"
+             aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 Christianna BLAKIME. Tous droits réservés.</p>
+      </div>
     </div>
-</footer>
+  </footer>
   
   <!-- Script pour le menu hamburger -->
-  <script src="script.js"></script>
+  <script>
+    // Menu mobile
+    document.getElementById('hamburger').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Fermer le menu mobile lorsqu'un lien est cliqué
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.add('hidden');
+      });
+    });
+
+    // Envoi du formulaire par email
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Récupération des données du formulaire
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Construction du lien mailto
+      const mailtoLink = `mailto:blakchristianna@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      )}`;
+      
+      // Ouverture du client mail par défaut
+      window.location.href = mailtoLink;
+      
+      // Réinitialisation du formulaire
+      this.reset();
+      
+      // Feedback utilisateur
+      alert('Votre client mail va s\'ouvrir. Merci pour votre message !');
+    });
+  </script>
 </body>
 </html>
