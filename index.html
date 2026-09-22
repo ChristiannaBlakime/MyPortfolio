@@ -1,402 +1,1227 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Christianna BLAKIME - Développeuse Full Stack</title>
-  <!-- Intégration de Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Styles personnalisés */
-    .hero-bg {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
-    }
-    .tech-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    }
-    .project-card {
-      transition: all 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christianna BLAKIME — Développeuse Full-Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #0D0D0D;
+  --paper:  #FAFAF8;
+  --accent: #E5233D;
+  --deep:   #1A1A2E;
+  --soft:   #F0F0EC;
+  --mid:    #6B6B6B;
+  --border: #D4D4CE;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── SCREENTONE PATTERN ── */
+.screentone {
+  background-image: radial-gradient(circle, #00000008 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250, 250, 248, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-seal {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: var(--ink);
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  padding: 2px 10px;
+  position: relative;
+}
+.nav-seal::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--accent);
+  opacity: 0.3;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--mid);
+  transition: color 0.2s;
+  text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 2rem 4rem;
+}
+
+.hero-speedlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.hero-name .first { display: block; }
+.hero-name .last {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink);
+}
+
+.hero-title {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+.hero-title strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-primary:hover { background: var(--accent); }
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 60px;
+  background: var(--accent);
+  animation: scrollline 2s ease-in-out infinite;
+}
+@keyframes scrollline {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.7); }
+}
+
+/* ── SECTION LAYOUT ── */
+section {
+  padding: 6rem 2rem;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  margin-bottom: 3rem;
+}
+
+/* ── ABOUT ── */
+#about { background: var(--paper); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-img-wrap {
+  position: relative;
+}
+.about-img-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%);
+}
+.about-img-frame {
+  position: absolute;
+  inset: -8px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+  z-index: -1;
+}
+.about-img-frame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--accent);
+  opacity: 0.3;
+}
+
+.about-text p {
+  color: var(--mid);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+.about-text p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.about-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  color: var(--mid);
+  background: transparent;
+  transition: all 0.2s;
+}
+.badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── SKILLS ── */
+#skills {
+  background: var(--deep);
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+  padding: 8rem 2rem;
+}
+#skills .section-label { color: rgba(229,35,61,0.8); }
+#skills .section-title { color: #fff; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5px;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+.skill-card {
+  background: var(--deep);
+  padding: 2rem;
+  position: relative;
+  transition: background 0.2s;
+}
+.skill-card:hover { background: rgba(255,255,255,0.04); }
+
+.skill-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.skill-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.skill-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--paper); }
+
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--accent);
+  background: var(--paper);
+  transform: rotate(45deg);
+}
+.timeline-item.current::before {
+  background: var(--accent);
+}
+
+.timeline-date {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.timeline-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.timeline-company {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--mid);
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.8;
+  max-width: 680px;
+}
+.timeline-desc li {
+  margin-left: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+.timeline-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+.stack-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  background: var(--soft);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+/* ── PROJECTS ── */
+#projects { background: var(--soft); }
+#projects.screentone {
+  background-image:
+    radial-gradient(circle, #00000010 1px, transparent 1px),
+    linear-gradient(var(--soft), var(--soft));
+  background-size: 18px 18px, auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+.project-card:hover::before { opacity: 1; }
+
+.project-header {
+  padding: 1.75rem 1.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.project-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.project-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.project-type {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.project-body {
+  padding: 1.25rem 1.75rem 1.75rem;
+}
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+.project-link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: gap 0.2s;
+}
+.project-link:hover { gap: 0.7rem; }
+
+.project-private {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--ink);
+  clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);
+  padding: 8rem 2rem 5rem;
+}
+#contact .section-label { color: rgba(229,35,61,0.8); }
+#contact .section-title { color: #fff; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-text {
+  color: rgba(255,255,255,0.6);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+.contact-text strong { color: #fff; }
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.contact-link:hover { color: var(--accent); }
+.contact-link-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 0.15rem;
+}
+.contact-link-val {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s;
+}
+.contact-link:hover .contact-link-val { color: #fff; }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.form-input, .form-textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 0.85rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--accent);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-input::placeholder, .form-textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #070709;
+  padding: 2rem;
+  text-align: center;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.2);
+}
+.footer-socials {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-socials a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-socials a:hover { color: var(--accent); }
+
+/* ── MOBILE ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 60px 0 0;
+    background: var(--paper);
+    padding: 2rem;
+    gap: 1.5rem;
+    z-index: 99;
+  }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-scroll { display: none; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
-<body class="font-poppins text-gray-800 bg-gray-50">
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#" class="text-2xl font-bold text-blue-600">CB</a>
-      <ul class="hidden md:flex space-x-8">
-        <li><a href="#accueil" class="hover:text-blue-600 transition font-medium">Accueil</a></li>
-        <li><a href="#apropos" class="hover:text-blue-600 transition font-medium">À propos</a></li>
-        <li><a href="#competences" class="hover:text-blue-600 transition font-medium">Expertise</a></li>
-        <li><a href="#projets" class="hover:text-blue-600 transition font-medium">Réalisations</a></li>
-        <li><a href="#contact" class="hover:text-blue-600 transition font-medium">Contact</a></li>
-      </ul>
-      <!-- Bouton hamburger pour mobile -->
-      <div class="md:hidden">
-        <button id="hamburger" class="focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Menu mobile -->
-    <ul id="mobileMenu" class="md:hidden hidden flex-col space-y-4 bg-white shadow-md py-4 px-6">
-      <li><a href="#accueil" class="block hover:text-blue-600 transition font-medium">Accueil</a></li>
-      <li><a href="#apropos" class="block hover:text-blue-600 transition font-medium">À propos</a></li>
-      <li><a href="#competences" class="block hover:text-blue-600 transition font-medium">Expertise</a></li>
-      <li><a href="#projets" class="block hover:text-blue-600 transition font-medium">Réalisations</a></li>
-      <li><a href="#contact" class="block hover:text-blue-600 transition font-medium">Contact</a></li>
-    </ul>
-  </nav>
+<body>
 
-  <!-- Section Accueil / Héro -->
-  <section id="accueil" class="min-h-screen flex items-center justify-center hero-bg pt-20">
-    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-      <!-- Texte de présentation -->
-      <div class="md:w-1/2 text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Christianna BLAKIME</h1>
-        <h2 class="text-2xl md:text-3xl font-medium mb-6 text-blue-600">Développeuse Full Stack & Conceptrice d'Applications</h2>
-        <p class="text-gray-700 mb-8 text-lg">
-          Je conçois et développe des applications web performantes et évolutives, 
-          en mettant l'accent sur l'expérience utilisateur et la qualité du code.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
-          <a href="#projets" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-medium shadow">Voir mes réalisations</a>
-          <a href="#contact" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition font-medium">Discutons de votre projet</a>
-        </div>
-      </div>
-      <!-- Illustration -->
-      <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
-        <img src="https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg" alt="Développement web" class="rounded-lg shadow-xl max-w-md w-full">
-      </div>
-    </div>
-  </section>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-seal">CB</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Stack</a></li>
+    <li><a href="#experience">Parcours</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#actu">Actualité</a></li>
+    <li><a href="#actu">Actualité</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <!-- Section À propos -->
-  <section id="apropos" class="py-20 bg-white">
-    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-      <!-- Image -->
-      <div class="md:w-2/5 flex justify-center mb-10 md:mb-0">
-        <div class="relative">
-          <img src="assets/Profil1.jpg" alt="Christianna BLAKIME" class="w-64 h-80 md:w-80 md:h-96 object-cover rounded-lg shadow-lg">
-          <div class="absolute -bottom-5 -right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md">
-            <span class="font-bold">5+</span> projets
-          </div>
-        </div>
+<!-- HERO -->
+<section id="hero">
+  <!-- Speed lines SVG -->
+  <svg class="hero-speedlines" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g stroke="#000" stroke-width="1" transform-origin="0 400">
+      <line x1="0" y1="400" x2="1400" y2="20"/>
+      <line x1="0" y1="400" x2="1400" y2="60"/>
+      <line x1="0" y1="400" x2="1400" y2="100"/>
+      <line x1="0" y1="400" x2="1400" y2="140"/>
+      <line x1="0" y1="400" x2="1400" y2="180"/>
+      <line x1="0" y1="400" x2="1400" y2="220"/>
+      <line x1="0" y1="400" x2="1400" y2="260"/>
+      <line x1="0" y1="400" x2="1400" y2="300"/>
+      <line x1="0" y1="400" x2="1400" y2="340"/>
+      <line x1="0" y1="400" x2="1400" y2="380"/>
+      <line x1="0" y1="400" x2="1400" y2="420"/>
+      <line x1="0" y1="400" x2="1400" y2="460"/>
+      <line x1="0" y1="400" x2="1400" y2="500"/>
+      <line x1="0" y1="400" x2="1400" y2="540"/>
+      <line x1="0" y1="400" x2="1400" y2="580"/>
+      <line x1="0" y1="400" x2="1400" y2="620"/>
+      <line x1="0" y1="400" x2="1400" y2="660"/>
+      <line x1="0" y1="400" x2="1400" y2="700"/>
+      <line x1="0" y1="400" x2="1400" y2="740"/>
+      <line x1="0" y1="400" x2="1400" y2="780"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Développeuse Full-Stack · MIAGE · Cesson-Sévigné</p>
+    <h1 class="hero-name">
+      <span class="first">Christianna</span>
+      <span class="last">Blakime</span>
+    </h1>
+    <p class="hero-title">
+      Je conçois et développe des applications de bout en bout<br>
+      <strong>→ de l'idée au déploiement.</strong>
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="assets/Profil1.jpg" alt="Christianna BLAKIME">
+        <div class="about-img-frame"></div>
       </div>
-      <!-- Texte -->
-      <div class="md:w-3/5 md:pl-12">
-        <h2 class="text-3xl font-bold text-blue-600 mb-6">À propos de moi</h2>
-        <p class="text-gray-700 mb-6 text-lg">
-          Développeuse Full Stack passionnée avec une expertise dans la conception et le développement d'applications web complexes. 
-          Je combine des compétences techniques solides avec une approche méthodique pour livrer des solutions robustes et adaptées aux besoins métiers.
+      <div class="about-text">
+        <p class="section-label">À propos</p>
+        <h2 class="section-title">Coder,<br>c'est bien.<br>Comprendre,<br>c'est mieux.</h2>
+        <p>
+          Je suis développeuse Full-Stack formée en <strong>MIAGE</strong> — une filière qui couple
+          le développement logiciel à la compréhension des enjeux métier. J'apprends à concevoir
+          des solutions qui répondent à de vrais besoins avant d'écrire une ligne de code.
         </p>
-        <p class="text-gray-700 mb-6 text-lg">
-          Spécialisée dans l'analyse des besoins fonctionnels, je transforme les exigences métier en spécifications techniques claires. 
-          Mon expertise en conception et modélisation de bases de données me permet de créer des architectures data performantes et évolutives.
+        <p>
+          En ce moment, je pilote seule le développement d'<strong>Applic'n'do</strong>, une plateforme
+          de gestion qualité pour un réseau de micro-crèches : recueil des besoins, maquettes
+          Figma validées avec les utilisateurs, architecture, développement et suivi Agile sur Jira.
         </p>
-        <div class="flex flex-wrap gap-4 mt-8">
-          <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full font-medium">
-            <i class="fas fa-database mr-2"></i> Modélisation DB
-          </div>
-          <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full font-medium">
-            <i class="fas fa-project-diagram mr-2"></i> Analyse fonctionnelle
-          </div>
-          <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full font-medium">
-            <i class="fas fa-code mr-2"></i> Développement Full Stack
-          </div>
+        <p>
+          À côté du code, je dessine, je fais de la modélisation 3D sur Blender
+          et je suis passionnée de manga : cet univers où la narration visuelle
+          et la précision se rencontrent. Deux disciplines qui, finalement, ne sont
+          pas si éloignées du développement logiciel.
+        </p>
+        <div class="about-badges">
+          <span class="badge">Angular</span><span class="badge">React</span>
+          <span class="badge">FastAPI</span><span class="badge">Spring Boot</span>
+          <span class="badge">Symfony</span><span class="badge">Vue.js</span>
+          <span class="badge">PostgreSQL</span><span class="badge">Docker</span>
+          <span class="badge">Jira · Agile</span><span class="badge">Figma</span>
+          <span class="badge">Claude AI</span><span class="badge">TypeScript</span>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!-- Section Compétences -->
-  <section id="competences" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-blue-600 mb-4">Mon Expertise Technique</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          Une maîtrise approfondie des technologies modernes pour des solutions performantes et maintenables
-        </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">Stack technique</p>
+    <h2 class="section-title">Ce avec quoi<br>je travaille</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-icon">〈 /〉</div>
+        <h3>Back-end</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">FastAPI · Python</span>
+          <span class="skill-tag">Spring Boot · Java</span>
+          <span class="skill-tag">Symfony · PHP</span>
+          <span class="skill-tag">Django Rest</span>
+          <span class="skill-tag">JAX-RS / Hibernate</span>
+          <span class="skill-tag">API REST</span>
+        </div>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Backend -->
-        <div class="bg-white p-8 rounded-xl shadow-md tech-card transition">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-server text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Développement Backend</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>Spring Boot</strong> - Applications Java robustes avec Spring Security, JPA, Hibernate</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>Symfony</strong> - Développement PHP avec architecture MVC et Doctrine</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>Microservices</strong> - Architecture découpée avec Spring Cloud</span>
-            </li>
-          </ul>
+      <div class="skill-card">
+        <div class="skill-card-icon">✦</div>
+        <h3>Front-end</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">React / Next.js</span>
+          <span class="skill-tag">Vue.js</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Flutter / Dart</span>
+          <span class="skill-tag">Figma</span>
         </div>
-        
-        <!-- Frontend -->
-        <div class="bg-white p-8 rounded-xl shadow-md tech-card transition">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-laptop-code text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Développement Frontend</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>Angular</strong> - Applications SPA avec RxJS, NgRx, Material UI</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>React</strong> - Interfaces dynamiques, Context API</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>TypeScript</strong> - Développement typé pour une meilleure maintenance</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>Responsive Design</strong> - Applications adaptées à tous devices</span>
-            </li>
-          </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">⬡</div>
+        <h3>Données & DevOps</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL · Oracle</span>
+          <span class="skill-tag">Neo4J</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git · GitLab CI</span>
+          <span class="skill-tag">pgcrypto / AES-256</span>
         </div>
-        
-        <!-- Base de données -->
-        <div class="bg-white p-8 rounded-xl shadow-md tech-card transition">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-database text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Bases de Données & DevOps</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>MySQL/PostgreSQL</strong> - Conception et optimisation de schémas relationnels</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>Docker</strong> - Containerisation et déploiement d'applications</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-              <span><strong>CI/CD</strong> - Intégration et déploiement continus avec GitHub Actions</span>
-            </li>
-          </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">◎</div>
+        <h3>Méthodes</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile SCRUM</span>
+          <span class="skill-tag">UML · MERISE</span>
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Recueil des besoins</span>
+          <span class="skill-tag">Cahier des charges</span>
+          <span class="skill-tag">Documentation technique</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">⌬</div>
+        <h3>IA & Productivité</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude (usage quotidien)</span>
+          <span class="skill-tag">DeepSeek</span>
+          <span class="skill-tag">GitHub Copilot</span>
+          <span class="skill-tag">Cursor</span>
+          <span class="skill-tag">Génération de code</span>
+          <span class="skill-tag">Revue de code IA</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">❖</div>
+        <h3>Langues</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Français — courant</span>
+          <span class="skill-tag">Anglais — B2</span>
+          <span class="skill-tag">Documentation technique</span>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!-- Section Projets -->
-  <section id="projets" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-blue-600 mb-4">Mes Réalisations</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          Des projets concrets mettant en œuvre mon expertise technique et ma compréhension des besoins métiers
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Projet 1 -->
-        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md project-card">
-          <img src="assets/AdopteUnDev.png" alt="AdopteUnDev" class="w-full h-64 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">AdopteUnDev</h3>
-            <p class="text-gray-600 mb-4">
-              Plateforme de recrutement spécialisée pour développeurs avec matching algorithmique, 
-                réalisée avec Symfony. Conception de la base de données relationnelle 
-              et intégraton des vues dans les interfaces Twig.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Symfony</span>
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-            </div>
-            <a href="https://drive.google.com/file/d/1qOI0qs2jl4Rnq7wRqOlS0Gd2w7X6tLKd/view?usp=drive_link" 
-               class="text-blue-600 hover:underline font-medium inline-flex items-center">
-              Voir le projet <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Projet 2 -->
-        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md project-card">
-          <img src="assets/passe_capture.png" alt="PASSE" class="w-full h-64 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">PASSE</h3>
-            <p class="text-gray-600 mb-4">
-              Digitalisation du processus de délivrance des attestations pour marchés publics. 
-              Solution complète avec workflow métier complexe, développée avec Spring Boot et Angular 
-              Analyse détaillée des besoins fonctionnels avant conception.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Spring Boot</span>
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Angular</span>
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-            </div>
-            <a href="https://passe.arcop.tg/publics/lite-egp" 
-               class="text-blue-600 hover:underline font-medium inline-flex items-center">
-              Voir le projet <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Projet 3 -->
-        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md project-card">
-          <img src="assets/NetAtlas.png" alt="NETATLAS" class="w-full h-64 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">NETATLAS</h3>
-            <p class="text-gray-600 mb-4">
-              Plateforme de messagerie sociale avec fonctionnalités avancées de chat en temps réel. 
-              Architecture MVC avec C# et ASP.NET Core. Modélisation de la 
-              base de données pour optimiser les performances des requêtes.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">C#</span>
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">ASP.NET Core</span>
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-            </div>
-            <a href="https://github.com/Adocal5353/NetAtlas" 
-               class="text-blue-600 hover:underline font-medium inline-flex items-center">
-              Voir le code <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Parcours</p>
+    <h2 class="section-title">Où j'ai appris<br>à livrer</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-date">Mai – Août 2026 · 4 mois</p>
+        <h3 class="timeline-role">Développeuse Full-Stack</h3>
+        <p class="timeline-company">Crèche'n'do — Cesson-Sévigné (35) · Stage</p>
+        <ul class="timeline-desc">
+          <li>Pilotage autonome d'Applic'n'do, plateforme de pilotage qualité pour 9 micro-crèches</li>
+          <li>Recueil des besoins, cahier des charges, 10+ maquettes Figma validées avec les utilisateurs</li>
+          <li>Architecture multi-organisations paramétrable · 8 sprints / 32 tâches sur Jira</li>
+          <li>Développement complet full-stack + documentation technique</li>
+        </ul>
+        <div class="timeline-stack">
+          <span class="stack-tag">FastAPI</span><span class="stack-tag">Angular</span>
+          <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Docker</span>
+          <span class="stack-tag">Jira</span>
         </div>
       </div>
+
+      <div class="timeline-item">
+        <p class="timeline-date">Mai – Août 2025 · 3 mois</p>
+        <h3 class="timeline-role">Développeuse Symfony / React</h3>
+        <p class="timeline-company">Les 1001 Clicks · Villeneuve-Saint-Georges (94) · Stage</p>
+        <ul class="timeline-desc">
+          <li>Marketplace événementielle full-stack de A à Z</li>
+          <li>API REST, système de modération admin, intégration d'un module de paiement</li>
+          <li>Interfaces responsives + modélisation UML des flux métier</li>
+        </ul>
+        <div class="timeline-stack">
+          <span class="stack-tag">Symfony</span><span class="stack-tag">React</span>
+          <span class="stack-tag">PHP</span><span class="stack-tag">API REST</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-date">Septembre 2023 – Juin 2024 · 9 mois</p>
+        <h3 class="timeline-role">Développeuse Spring Boot / Angular</h3>
+        <p class="timeline-company">NG-STARS · Lomé, Togo · Poste titulaire (2 stages → CDI)</p>
+        <ul class="timeline-desc">
+          <li>Digitalisation du processus de délivrance d'attestations — client ARCOP Togo</li>
+          <li>Modules Spring Boot, composants Angular, méthode Agile SCRUM en équipe</li>
+          <li>Analyse des besoins, spécifications techniques, conception architecture</li>
+        </ul>
+        <div class="timeline-stack">
+          <span class="stack-tag">Spring Boot</span><span class="stack-tag">Angular</span>
+          <span class="stack-tag">Django Rest</span><span class="stack-tag">Agile SCRUM</span>
+        </div>
+      </div>
+
     </div>
-  </section>
-  
-  <!-- Section Contact -->
-  <section id="contact" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-blue-600 mb-4">Contactez-moi</h2>
-          <p class="text-gray-600">
-            Vous avez un projet ou une question ? Envoyez-moi un message et je vous répondrai dans les plus brefs délais.
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="screentone">
+  <div class="section-inner">
+    <p class="section-label">Réalisations</p>
+    <h2 class="section-title">Ce que j'ai<br>construit</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-number">01 · 2026</p>
+          <h3 class="project-title">Applic'n'do</h3>
+          <p class="project-type">Plateforme SaaS · Stage Crèche'n'do</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            Outil de pilotage de la qualité d'accueil pour un réseau de 9 micro-crèches.
+            Architecture multi-organisations paramétrable avec modules audit, notes de frais
+            et planning. Projet piloté de bout en bout en autonomie.
           </p>
+          <div class="project-stack">
+            <span class="stack-tag">FastAPI</span><span class="stack-tag">Angular</span>
+            <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Docker</span>
+          </div>
+          <span class="project-private">⊘ Code confidentiel</span>
         </div>
-        
-        <form id="contactForm" class="bg-white rounded-xl shadow-md p-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label for="name" class="block text-gray-700 font-medium mb-2">Votre nom</label>
-              <input type="text" id="name" name="name" required 
-                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
-            </div>
-            <div>
-              <label for="email" class="block text-gray-700 font-medium mb-2">Votre email</label>
-              <input type="email" id="email" name="email" required 
-                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
-            </div>
-          </div>
-          <div class="mb-6">
-            <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
-            <input type="text" id="subject" name="subject" required 
-                   class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
-            <textarea id="message" name="message" rows="5" required 
-                      class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
-          </div>
-          <button type="submit" 
-                  class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium shadow-md">
-            Envoyer le message
-          </button>
-        </form>
       </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-6 md:mb-0">
-          <h3 class="text-2xl font-bold text-white mb-2">Christianna BLAKIME</h3>
-          <p class="text-gray-400">Développeuse Full Stack & Conceptrice d'Applications</p>
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-number">02 · 2025</p>
+          <h3 class="project-title">Marketplace événementielle</h3>
+          <p class="project-type">Application full-stack · Stage Les 1001 Clicks</p>
         </div>
-        
-        <div class="flex space-x-6">
-          <a href="https://github.com/ChristiannaBlakime" 
-             class="text-gray-400 hover:text-white transition text-2xl"
-             aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/christianna-blakime/" 
-             class="text-gray-400 hover:text-white transition text-2xl"
-             aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://x.com/blakime_c" 
-             class="text-gray-400 hover:text-white transition text-2xl"
-             aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
+        <div class="project-body">
+          <p class="project-desc">
+            Plateforme de mise en relation entre professionnels de l'événementiel.
+            Vitrine portfolio, gestion de projets côté clients, système de modération
+            admin et intégration d'un module de paiement.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Symfony</span><span class="stack-tag">React</span>
+            <span class="stack-tag">PHP</span><span class="stack-tag">API REST</span>
+          </div>
+          <span class="project-private">⊘ Code confidentiel</span>
         </div>
       </div>
-      
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2023 Christianna BLAKIME. Tous droits réservés.</p>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- Script pour le menu hamburger -->
-  <script>
-    // Menu mobile
-    document.getElementById('hamburger').addEventListener('click', function() {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Fermer le menu mobile lorsqu'un lien est cliqué
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', function() {
-        document.getElementById('mobileMenu').classList.add('hidden');
-      });
-    });
 
-    // Envoi du formulaire par email
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Récupération des données du formulaire
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Construction du lien mailto
-      const mailtoLink = `mailto:blakchristianna@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-        `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-      )}`;
-      
-      // Ouverture du client mail par défaut
-      window.location.href = mailtoLink;
-      
-      // Réinitialisation du formulaire
-      this.reset();
-      
-      // Feedback utilisateur
-      alert('Votre client mail va s\'ouvrir. Merci pour votre message !');
-    });
-  </script>
+            </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-number">04 · 2024</p>
+          <h3 class="project-title">PASSE — ARCOP Togo</h3>
+          <p class="project-type">Application métier · NG-STARS</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            Digitalisation du processus de délivrance d'attestations de redevance
+            sur marchés publics pour l'ARCOP Togo. Application déployée et utilisée
+            en production par les agents de l'autorité publique.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Spring Boot</span><span class="stack-tag">Angular</span>
+            <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Agile</span>
+          </div>
+          <a href="https://passe.arcop.tg" class="project-link" target="_blank">
+            Voir en production →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-number">05 · 2024</p>
+          <h3 class="project-title">AdopteUnDev</h3>
+          <p class="project-type">Projet académique · M1 MIAGE</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            Plateforme de mise en relation entre développeurs et recruteurs
+            sur le modèle des applications de rencontre. Matching, profils,
+            messagerie. Conception complète de la base de données relationnelle.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Symfony</span><span class="stack-tag">PHP</span>
+            <span class="stack-tag">MySQL</span><span class="stack-tag">Twig</span>
+          </div>
+          <a href="https://github.com/ChristiannaBlakime" class="project-link" target="_blank">
+            Voir le profil →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-number">06 · 2024</p>
+          <h3 class="project-title">NetAtlas</h3>
+          <p class="project-type">Projet académique · IAI-Togo</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            Application de messagerie sociale avec chat en temps réel.
+            Architecture MVC avec C# et ASP.NET Core. Modélisation
+            de la base de données optimisée pour les performances.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">C#</span><span class="stack-tag">ASP.NET Core</span>
+            <span class="stack-tag">MySQL</span><span class="stack-tag">SignalR</span>
+          </div>
+          <a href="https://github.com/Adocal5353/NetAtlas" class="project-link" target="_blank">
+            Voir le code →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACTUALITÉ -->
+<section id="actu" style="background: var(--paper); padding: 5rem 2rem; border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <p class="section-label">Actualité</p>
+    <h2 class="section-title">Ce que je<br>cherche maintenant</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+
+      <div style="border: 1px solid var(--border); padding: 2rem; background: var(--paper); position: relative;">
+        <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;">Disponibilité</div>
+        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.75rem;">Alternance M2 — Septembre 2026</p>
+        <p style="font-size: 0.88rem; color: var(--mid); line-height: 1.75;">
+          En M2 MIAGE à l'Université de Rennes. Disponible pour une alternance d'un an
+          à partir de septembre 2026, en rythme <strong style="color: var(--ink);">5 semaines entreprise / 5 semaines cours</strong>.
+          Mobilité sur toute la France.
+        </p>
+      </div>
+
+      <div style="border: 1px solid var(--border); padding: 2rem; background: var(--paper);">
+        <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;">Ce que je recherche</div>
+        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.75rem;">Développement · Gestion de projet</p>
+        <p style="font-size: 0.88rem; color: var(--mid); line-height: 1.75;">
+          Postes de <strong style="color: var(--ink);">développeuse Full-Stack</strong> ou
+          <strong style="color: var(--ink);">assistante chef de projet / PMO</strong>.
+          À terme, mon objectif est de devenir <strong style="color: var(--ink);">architecte logicielle ou chef de projet</strong>.
+        </p>
+      </div>
+
+      <div style="border: 1px solid var(--border); padding: 2rem; background: var(--paper);">
+        <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;">Secteurs</div>
+        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.75rem;">Ouvert à tous secteurs</p>
+        <p style="font-size: 0.88rem; color: var(--mid); line-height: 1.75;">
+          Industrie, FinTech, SaaS, ESN, startup.
+          Ce qui compte : <strong style="color: var(--ink);">un vrai projet</strong>,
+          une équipe technique, et des enjeux métier réels.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Parlons<br>de votre projet</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-text">
+          Une idée de projet, une opportunité, ou simplement envie d'échanger ?
+          Je suis disponible et je réponds rapidement.
+        </p>
+        <div class="contact-links">
+          <a href="tel:+33623107802" class="contact-link">
+            <div>
+              <p class="contact-link-label">Téléphone</p>
+              <p class="contact-link-val">+33 6 23 10 78 02</p>
+            </div>
+          </a>
+          <a href="mailto:blakchristianna@gmail.com" class="contact-link">
+            <div>
+              <p class="contact-link-label">Email</p>
+              <p class="contact-link-val">blakchristianna@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/christianna-blakime" target="_blank" class="contact-link">
+            <div>
+              <p class="contact-link-label">LinkedIn</p>
+              <p class="contact-link-val">Christianna BLAKIME</p>
+            </div>
+          </a>
+          <a href="https://github.com/ChristiannaBlakime" target="_blank" class="contact-link">
+            <div>
+              <p class="contact-link-label">GitHub</p>
+              <p class="contact-link-val">@ChristiannaBlakime</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label class="form-label" for="name">Nom</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Marie Dupont" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="marie@entreprise.fr" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Bonjour Christianna, nous avons une opportunité qui pourrait vous intéresser..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+          Envoyer le message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Christianna BLAKIME — Cesson-Sévigné (35)</p>
+    <div class="footer-socials">
+      <a href="https://github.com/ChristiannaBlakime" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/christianna-blakime" target="_blank">LinkedIn</a>
+      <a href="mailto:blakchristianna@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+document.querySelectorAll('#navLinks a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const msg = document.getElementById('message').value;
+  window.location.href = `mailto:blakchristianna@gmail.com?subject=Contact portfolio - ${encodeURIComponent(name)}&body=${encodeURIComponent('De: ' + name + '\nEmail: ' + email + '\n\n' + msg)}`;
+  this.reset();
+});
+
+// Subtle entrance animation for hero elements
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero-eyebrow, .hero-name, .hero-title, .hero-cta').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }, 200 + i * 120);
+  });
+});
+</script>
 </body>
 </html>
